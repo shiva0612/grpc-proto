@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package book;
+
+option go_package = "shiva/domain-driven/book";
+
+message Book {
+    string id = 1;
+    string title = 2;
+    repeated string author = 3;
+}
+

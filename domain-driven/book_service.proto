@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package book;
+
+import "book.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "shiva/domain-driven/book";
+
+service BookApi {
+    rpc AddBook (book.Book) returns (google.protobuf.Empty);
+    rpc GetBook (google.protobuf.Empty) returns (book.Book);
+}

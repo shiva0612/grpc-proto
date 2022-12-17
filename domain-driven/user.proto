@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "shiva/domain-driven/user";
+
+message User {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    repeated string email = 4;
+    uint32 age = 5;
+    repeated Adress address = 6;
+}
+
+message Adress {
+    string city = 1;
+    string state = 2;
+    string country = 3;
+    string zipcode = 4;
+}
+
+
+message StringResponse {
+    string response = 1;
+}
+
+message StringRequest {
+    string request = 1;
+}

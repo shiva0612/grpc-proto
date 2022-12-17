@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package user;
+
+import "user.proto";
+import "google/protobuf/empty.proto";
+
+
+option go_package = "shiva/domain-driven/user";
+
+service UserApi {
+    //unary
+    rpc AddUser(user.User) returns (user.StringResponse);
+
+    //client streaming
+    rpc AddUsers(stream user.User) returns (user.StringResponse);
+
+    //server streaming
+    rpc ListUsers(google.protobuf.Empty) returns(stream user.User);
+
+    //bi-streaming
+    rpc ListTheseUsers(stream user.StringRequest) returns(stream user.User);
+
+}
